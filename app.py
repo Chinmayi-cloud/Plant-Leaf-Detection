@@ -39,7 +39,7 @@ def index():
             label = label_dict[prediction]
 
             print("Predicted inde:", prediction)
-            print("Predicted label:", label)
+            print("Predicted labe:", label)
 
             # More reliable check for healthy label
             if label.lower().endswith('___healthy'):
