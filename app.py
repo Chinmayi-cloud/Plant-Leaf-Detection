@@ -38,7 +38,7 @@ def index():
             prediction = model.predict([features])[0]
             label = label_dict[prediction]
 
-            print("Predicted inde:", prediction)
+            print("Predicted ind:", prediction)
             print("Predicted label:", label)
 
             # More reliable check for healthy label
