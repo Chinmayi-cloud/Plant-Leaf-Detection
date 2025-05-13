@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🌿 Plant Leaf Disease Detection</title>
+    <style>
+        body {
+            background-color: #eafcf0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 40px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+        }
+        img {
+            margin-top: 20px;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .healthy {
+            color: green;
+        }
+        .diseased {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🌿 Plant Leaf Disease Detection</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="leaf_image" required><br>
+            <input type="submit" value="Detect" style="margin-top: 15px; background-color:#28a745; color:white; padding:10px 20px; border:none; border-radius:5px;">
+        </form>
+
+        {% if result %}
+            <div class="result {% if 'Healthy' in result %}healthy{% else %}diseased{% endif %}">
+                {{ result }}
+            </div>
+            {% if image_filename %}
+                <img src="{{ url_for('uploaded_file', filename=image_filename) }}" alt="Uploaded Leaf Image">
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
